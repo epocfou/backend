@@ -5,12 +5,18 @@ const port = 3000;
 
 app.use(cors());
 
+app.use(express.json());
+
+var arrr = ["kol", "door", "laage"];
+
 app.get("/a", (req, res) => {
-  res.send("Hello World1!");
+  res.send(arrr);
 });
 
-app.get("/b", (req, res) => {
-  res.send("Hello World!2");
+app.post("/b", (req, res) => {
+  console.log(req.body.value1);
+  arrr.push(req.body.value1);
+  res.send("ok");
 });
 
 app.get("/c", (req, res) => {
