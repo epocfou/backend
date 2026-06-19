@@ -30,6 +30,13 @@ app.get("/d", (req, res) => {
 app.get("/e", (req, res) => {
   res.send("Hello World!5");
 });
+app.get("/koof", (req, res) => {
+  if (req.query.name == "victor") {
+    res.send("vc");
+  } else {
+    res.send("vt");
+  }
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
