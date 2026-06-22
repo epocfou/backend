@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const { randomUUID } = require("crypto");
 const port = 3000;
 
 app.use(cors());
@@ -36,6 +37,14 @@ app.get("/koof", (req, res) => {
   } else {
     res.send("vt");
   }
+});
+
+app.get("/f", (req, res) => {
+  var teri = [];
+  for (var i = 0; i < 100; i++) {
+    teri.push(randomUUID());
+  }
+  res.send(teri);
 });
 
 app.listen(port, () => {
