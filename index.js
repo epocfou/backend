@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const { randomUUID } = require("crypto");
+const axios = require("axios");
 const port = 3000;
 
 app.use(cors());
@@ -45,6 +46,14 @@ app.get("/f", (req, res) => {
     teri.push(randomUUID());
   }
   res.send(teri);
+});
+
+app.get("/g", (req, res) => {
+  var pics = [];
+  for (var i = 0; i < 5; i++) {
+    pics.push("https://picsum.photos/seed/" + randomUUID() + "/800/600");
+  }
+  res.send(pics);
 });
 
 app.listen(port, () => {
